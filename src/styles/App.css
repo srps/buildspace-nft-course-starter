@@ -28,6 +28,11 @@
   color: white;
 }
 
+.mint-text { 
+  font-size: 18px;
+  color: white;
+}
+
 .loading {
   color: white;
   display: flex;

@@ -124,6 +124,8 @@ const App = () => {
 
         await txn.wait();
         setIsMinting(false);
+        const currentSupply = await connectedContract.getCurrentTokenId();
+        setCurrentSupply(currentSupply);
         console.log(
           `Minted NFT on https://rinkeby.etherscan.io/tx/${txn.hash}`
         );
@@ -137,7 +139,7 @@ const App = () => {
 
   useEffect(() => {
     checkIfWalletIsConnected();
-  });
+  },[]);
 
   useEffect(() => {
     setupEventListener()
@@ -154,6 +156,7 @@ const App = () => {
   );
 
   const renderMintUI = () => (
+    <>
     <button
       className="cta-button connect-wallet-button"
       onClick={mintNFT}
@@ -161,6 +164,8 @@ const App = () => {
     >
       Mint NFT
     </button>
+    <div className="mint-text">Minted {currentSupply}/{totalSupply}</div>
+    </>
   );
 
   const renderLoadingContainer = () => (
@@ -178,7 +183,6 @@ const App = () => {
           <p className="sub-text">
             Each unique. Each beautiful. Discover your NFT today.
           </p>
-          <p className="sub-text">Minted {currentSupply}/{totalSupply}</p>
           {!currentAccount ? renderNotConnectedContainer() : renderMintUI()}
           {isMinting && renderLoadingContainer()}
         </div>
