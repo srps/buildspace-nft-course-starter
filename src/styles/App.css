@@ -28,6 +28,13 @@
   color: white;
 }
 
+.loading {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .gradient-text {
   background: -webkit-linear-gradient(left, #60c657 30%, #35aee2 60%);
   background-clip: text;
@@ -62,13 +69,28 @@
 }
 
 .opensea-button {
-  background-color: rgb(32, 129, 226);
+  background: -webkit-linear-gradient(left, #a200d6, #ff6fdf);
+  overflow: hidden;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
 }
 
 .mint-count {
   color: white;
   font-size: 18px;
   font-weight: bold;
+}
+
+.opensea-container {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border: 1;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .footer-container {
